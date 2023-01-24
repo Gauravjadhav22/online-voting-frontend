@@ -20,9 +20,10 @@ function ChatBox() {
   // const [messages, setMessages] = useState([])
   const [msgSent, setMsgSent] = useState(false)
 
-const query = firestore.collection("messages").orderBy("createdAt")
-
-  const [messages] = useCollectionData(query, { roomId: rmkey });
+// const query = firestore.collection("messages").orderBy("createdAt")
+// console.log(rmkey);
+//   const [messages] = useCollectionData(query, { roomId: rmkey });
+  const [messages] = useCollectionData(firestore.collection("messages").where('roomId','==',rmkey).orderBy("createdAt"));
 
   // console.log(messages);
 // setMessages2(messages)
