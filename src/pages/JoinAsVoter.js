@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { useRoom } from '../Context/RoomProvider'
-import { useNavigate, useNavigation } from 'react-router-dom'
+import { NavLink, useNavigate, useNavigation } from 'react-router-dom'
+import vote1 from "../assets/vote1.jpg"
+
 const JoinAsVoter = () => {
     const navigate = useNavigate()
 
@@ -30,7 +32,12 @@ const JoinAsVoter = () => {
                 </div>
                 <input className='mt-3 text-2xl bg-purple-600 rounded-lg' type="submit" value="Join" />
             </form>
+         
+         
+            <div style={{ background: `url(${vote1})`, backgroundSize: "contain" ,backgroundRepeat:"repeat"}} className='h-3/5 w-full absolute bottom-0'>
 
+            </div>
+            <NavLink to='/createVoting' className='text-black bg-yellow-400 p-2 rounded-lg font-semibold absolute top-4 left-0'>Create A New Voting</NavLink>
 
         </div>
     )

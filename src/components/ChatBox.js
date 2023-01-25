@@ -75,8 +75,8 @@ function ChatBox() {
     {
       user &&
       <>
-        <main className='flex flex-col items-center justify-c mb-24'>
-
+        <main className='flex flex-col items-center mb-24'>
+          <h1 className='text-white text-2xl'>Group chat for everyone</h1>
           <div className='mt-4 border-2 shadow-lg mb-5 shadow-white border-cyan-300 p-3 rounded-xl h-96 overflow-y-scroll w-3/5 max-w-6xl scrollbar-none'>
 
 

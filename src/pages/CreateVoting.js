@@ -5,6 +5,9 @@ import { useRoom } from "../Context/RoomProvider"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Loading from '../components/Loading';
+import vote9 from "../assets/vote8.jpg"
+
+import { NavLink } from 'react-router-dom';
 const CreateVoting = () => {
     const { createRoom } = useRoom()
 
@@ -118,7 +121,7 @@ const CreateVoting = () => {
     for (var i = 0; i < noOfRivals; i++) {
         InputForm.push(
             <form key={i} className='absolute my-4 mt-12 ml-0' onSubmit={handleSubmit}>
-                <div key={i} className="bg-purple-500 rounded-2xl text-black w-fit p-3 my-2">
+                <div key={i} className="shadow shadow-cyan-400 bg-slate-500 rounded-2xl text-blueBg w-fit p-3 my-2">
                     <h1 className='text-3xl text-center font-semibold'>Enter details for participant <span className='text-4xl text-white normal-case'>{(i + 1)}th</span></h1>
 
 
@@ -158,7 +161,7 @@ const CreateVoting = () => {
 
 
     return (
-        <>
+        <div className='flex justify-center flex-col'>
 
             {
                 loading ? (
@@ -176,7 +179,7 @@ const CreateVoting = () => {
                             <h1 className='text-xl mb-8'>
                                 create a voting room by adding participants details
                             </h1>
-                            {!selected && <form className='flex flex-col ' onSubmit={handleSubmitTitle}>
+                            {!selected && <form className='flex flex-col text-xl ' onSubmit={handleSubmitTitle}>
 
                                 <div>
 
@@ -193,7 +196,7 @@ const CreateVoting = () => {
                                     <label>enter the termination time in hours : </label>
                                     <input onChange={(e) => setDeadline(e.target.value)} required placeholder='1' className='text-blueBg px-1 w-16' min="1" max="24" type="number" />
                                 </div>
-                                <input className='p-1 bg-purple-700 rounded-lg' type="submit" value="submit" />
+                                <input className='p-1 bg-purple-700 rounded-lg' type="submit" value="submit"  />
                             </form>}
 
                             {selected && !inputVisible && <div className='mt-14 text-2xl flex'>
@@ -227,7 +230,12 @@ const CreateVoting = () => {
                         </div>
                     </div>
                 )
-            }</>
+            }
+            <div style={{ background: `url(${vote9})`, backgroundSize: "cover" }} className='h-96 w-full absolute bottom-0 '>
+
+            </div>
+            <NavLink to='/joinAVoting' className='text-black bg-yellow-400 p-2 rounded-lg font-semibold absolute top-2 right-2'>Join A New Voting</NavLink>
+            </div>
 
     )
 }
