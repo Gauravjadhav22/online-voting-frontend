@@ -10,7 +10,7 @@ import 'firebase/auth'
 // Initialize Firebase
 firebase.initializeApp({
   apiKey: process.env.REACT_APP_apiKey,
-  authDomain: process.env.AUTH_DOMAIN,
+  authDomain: "online-voting-system-faadf.firebaseapp.com",
   projectId: "online-voting-system-faadf",
   storageBucket: "online-voting-system-faadf.appspot.com",
   messagingSenderId: "713140413530",

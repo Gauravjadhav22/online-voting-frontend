@@ -7,6 +7,7 @@ import { BiLogOut } from "react-icons/bi"
 import { useRoom } from '../Context/RoomProvider'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Voters from '../components/Voters'
 const Dashboard = () => {
   const { logout, login, user } = useAuth()
   const { getRoom, room, err } = useRoom()
@@ -34,6 +35,7 @@ const Dashboard = () => {
           <div className='flex flex-col justify-center items-center'>
             <p className='text-3xl text-white my-4 capitalize'>share the key of this room --&gt;<span className='text-xl mx-4 text-red-500 font-semibold'>{localStorage.getItem("roomkey")}</span> </p>
             <Rivals />
+            {/* <Voters/> */}
 
 
           </div>

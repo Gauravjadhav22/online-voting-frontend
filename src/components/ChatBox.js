@@ -17,49 +17,20 @@ function ChatBox() {
   const { logout, login, user } = useAuth()
   const [input, setInput] = useState('');
   let rmkey = localStorage.getItem("roomkey")
-  // const [messages, setMessages] = useState([])
   const [msgSent, setMsgSent] = useState(false)
 
-// const query = firestore.collection("messages").orderBy("createdAt")
-// console.log(rmkey);
-//   const [messages] = useCollectionData(query, { roomId: rmkey });
-  const [messages] = useCollectionData(firestore.collection("messages").where('roomId','==',rmkey).orderBy("createdAt"));
 
-  // console.log(messages);
-// setMessages2(messages)
-//   let filtered = messages2.filter(e => e.createdAt > Date.now());
+  const [messages] = useCollectionData(firestore.collection("messages").where('roomId', '==', rmkey).orderBy("createdAt"));
 
-//   filtered.sort((a, b) => b.startDate - a.startDate);
+
 
   const dummy = useRef();
 
-  // useEffect(() => {
-  //   const getMsgs = async () => {
-  //     console.log(rmkey, "fsdf");
-
-  //      await firestore.collection("messages").where('roomId', '==', rmkey).orderBy('createdAt').get().then((querySnapshot) => {
-  //       querySnapshot.forEach((doc) => {
-  //        let ss= doc.data()
-  //         console.log(doc.data());
-  //         var msg = doc.data();
-  //         // messages.push(doc.data())
-  //         // setMessages(messages)
-  //         setMessages((prev)=>[...prev,msg])
-          
-  //       });
-  //     });
-  //   }
-
-  //   console.log(messages);
 
 
-   
 
-  //   return ()=>{
 
-  //     getMsgs();
-  //   }
-  // },[msgSent]);
+
 
 
 
@@ -67,7 +38,7 @@ function ChatBox() {
   const handleSubmit = async (e) => {
     setSubmit(true)
     e.preventDefault();
-  
+
     const { uid, photoURL } = auth.currentUser;
 
     await firestore.collection("messages").add({
@@ -86,10 +57,8 @@ function ChatBox() {
 
   function ChatMessage(props) {
     const { text, uid, photoURL } = props.message;
-    // const messageClass = uid === auth.currentUser.uid ? 'sent' : 'received';
 
     return (<>
-      {/*  message ${messageClass} */}
       <div className={`flex flex-col justify-center items-start `}>
         <div className=' flex items-center justify-between text-white my-5 w-fit pr-4 rounded-full font-semibold'>
 
@@ -99,22 +68,6 @@ function ChatBox() {
       </div>
     </>)
   }
-  // function ChatMessage(props) {
-  //   console.log(props);
-  //   const { text, uid, photoURL } = props.message;
-  //   // const messageClass = uid === auth.currentUser.uid ? 'sent' : 'received';
-
-  //   return (<>
-  //     {/*  message ${messageClass} */}
-  //     <div className={`flex flex-col justify-center items-start `}>
-  //       <div className=' flex items-center justify-between text-white my-5 w-fit pr-4 rounded-full font-semibold'>
-
-  //         <img className='h-8 w-8 rounded-full' referrerPolicy='no-referrer' src={photoURL || userlogo} />
-  //         <p className='max-w-xs break-words ml-2 border-2 border-cyan-300 shadow-sm rounded-xl px-3 shadow-green-500'>{text}</p>
-  //       </div>
-  //     </div>
-  //   </>)
-  // }
 
 
 
@@ -125,16 +78,14 @@ function ChatBox() {
         <main className='flex flex-col items-center justify-c mb-24'>
 
           <div className='mt-4 border-2 shadow-lg mb-5 shadow-white border-cyan-300 p-3 rounded-xl h-96 overflow-y-scroll w-3/5 max-w-6xl scrollbar-none'>
-          
-           {/* {messages && messages.map(msg =>
-              <ChatMessage key={uuidv4()} message={msg} />
-            )} */}
-           {messages && messages.map(msg =>
+
+
+            {messages && messages.map(msg =>
               <ChatMessage key={uuidv4()} message={msg} />
             )}
 
             {
-             messages?.length<=0 && <h1 className='text-white text-2xl text-center'>chat with everyone in this room 😄</h1>
+              messages?.length <= 0 && <h1 className='text-white text-2xl text-center'>chat with everyone in this room 😄</h1>
             }
 
             <span ref={dummy}>

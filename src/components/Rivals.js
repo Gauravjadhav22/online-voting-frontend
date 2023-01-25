@@ -17,19 +17,26 @@ const Rivals = () => {
   const [rivalsData, setRivalsData] = useState([])
   useEffect(() => {
     let id = localStorage.getItem("roomkey")
-    console.log(room);
+    // console.log(room);
     // setRivalsData(room.rivals)
     axios.get(`/voterroom/${id}`).then(res => {
-      console.log(res.data)
-      setRivalsData(res.data)
-    }).catch(err => {
-      toast.success(`${err.response.data.msg}`, {
+      // console.log(res.status)
+      // setRivalsData(res.data)
+      toast.success(`${res.data.msg}`, {
         position: toast.POSITION.TOP_CENTER
       })
-      if (err.code === 'ERR_BAD_REQUEST') {
-        setRivalsData({ ...err.response.data.winner, winner: true })
-        console.log({ ...err.response.data.winner, winner: true });
+      if (res.status === 202) {
+        setRivalsData({ ...res.data.winner, winner: true })
+        console.log({ ...res.data.winner, winner: true });
       }
+    }).catch(err => {
+      toast.error(`${err.response.data.msg}`, {
+        position: toast.POSITION.TOP_CENTER
+      })
+      // if (err.code === 'ERR_BAD_REQUEST') {
+      //   setRivalsData({ ...err.response.data.winner, winner: true })
+      //   console.log({ ...err.response.data.winner, winner: true });
+      // }
 
     }
 
@@ -85,10 +92,10 @@ const Rivals = () => {
 
 
                   <div className=' text-center text-white font-semibold text-lg px-1'>
-                    <h2 className='px-1 capitalize border-t-2 border-gray-300 shadow-md my-4 shadow-amber-300  max-w-xs break-words'>no. of  votes {rivalsData.count}</h2>
-                    <h2 className='px-1 capitalize border-t-2 border-gray-300 shadow-md my-4 shadow-red-300  max-w-xs break-words '>
+                    <h2 className='px-1 capitalize  shadow-md my-4 shadow-amber-300  max-w-xs break-words'>no. of  votes {rivalsData.count}</h2>
+                    <h2 className='px-1 capitalize  shadow-md my-4 shadow-red-300  max-w-xs break-words '>
                       {rivalsData.name}</h2>
-                    <h2 className='px-1 border-t-2 border-gray-300 shadow-md my-4 max-w-xs break-words shadow-pink-300' >{rivalsData.email}</h2>
+                    <h2 className='px-1  shadow-md my-4 max-w-xs break-words shadow-pink-300' >{rivalsData.email}</h2>
                   </div>
 
 
@@ -107,7 +114,7 @@ const Rivals = () => {
 
         {
           rivalsData?.rivals?.map(item => {
-            return <div key={item._id} className='px-1 w-fit h-fit m-4 bg-purple-900 flex flex-col text-black  items-center justify-center shadow-md shadow-green-300 rounded-md mx-2'>
+            return <div key={item._id} className='px-1 w-fit h-fit m-4 bg-cyan-800 flex flex-col text-black  items-center justify-center shadow-sm shadow-green-300 rounded-md mx-2'>
 
 
               <div className=' w-44 h-44 overflow-hidden p-0 border-3 rounded-full border-yellow-50 mt-1 bg-white flex flex-col text-black  items-center justify-center shadow '>
@@ -117,10 +124,10 @@ const Rivals = () => {
 
 
               <div className=' text-center text-white font-semibold text-lg px-1'>
-                <h2 className='px-1 capitalize border-t-2 border-gray-300 shadow-md my-4 shadow-amber-300  max-w-xs break-words'>no. of  votes {item.count}</h2>
-                <h2 className='px-1 capitalize border-t-2 border-gray-300 shadow-md my-4 shadow-red-300  max-w-xs break-words '>
+                <h2 className='px-1 capitalize shadow-sm my-4 shadow-violet-300  max-w-xs break-words'>no. of  votes {item.count}</h2>
+                <h2 className='px-1 capitalize shadow-sm my-4 shadow-orange-300  max-w-xs break-words '>
                   {item.name}</h2>
-                <h2 className='px-1 border-t-2 border-gray-300 shadow-md my-4 max-w-xs break-words shadow-pink-300' >{item.email}</h2>
+                <h2 className='px-1 shadow-sm my-4 max-w-xs break-words shadow-blue-300' >{item.email}</h2>
               </div>
 
 
