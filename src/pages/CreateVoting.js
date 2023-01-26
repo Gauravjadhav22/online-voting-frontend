@@ -231,7 +231,7 @@ const CreateVoting = () => {
                     </div>
                 )
             }
-            <div style={{ background: `url(${vote9})`, backgroundSize: "cover" }} className='h-96 w-full absolute bottom-0 '>
+            <div style={{ background: `url(${vote9})`, backgroundSize: "cover" }} className='xl:96 lg:80 md:52 sm:h-64 w-full absolute bottom-0 '>
 
             </div>
             <NavLink to='/joinAVoting' className='text-black bg-yellow-400 p-2 rounded-lg font-semibold absolute top-2 right-2'>Join A New Voting</NavLink>

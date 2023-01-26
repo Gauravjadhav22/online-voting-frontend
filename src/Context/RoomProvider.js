@@ -12,7 +12,6 @@ export const RoomProvider = ({ children }) => {
     const [roomPass, setRoomPass] = useState("");
 
     const [err, setErr] = useState({});
-    const { logout, login, user } = useAuth()
 
     const navigate = useNavigate();
     let inputData = []
@@ -33,7 +32,7 @@ export const RoomProvider = ({ children }) => {
         localStorage.setItem('uniqueId', uuid)
         axios.post(`/voterroom/`, { ...inputdata, chatId: uuid }).then(res => {
 
-            console.log(res.data.response.id);
+            // console.log(res.data.response.id);
             setRoom(res.data.response)
             localStorage.setItem("roomkey", res.data.response.id)
             alert(`password of this room --> ${res.data.response.id}`)
@@ -53,7 +52,7 @@ export const RoomProvider = ({ children }) => {
     }
     const getRoom = () => {
         let id = localStorage.getItem('roomkey')
-        console.log(id);
+        // console.log(id);
 
         axios.get(`/voterroom/${id}`).then(res => {
             console.log(res.data)

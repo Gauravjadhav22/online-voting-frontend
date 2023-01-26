@@ -10,7 +10,7 @@ const Landing = () => {
 
         return (
             <div className='mt-14 text-4xl flex justify-center'>
-                <button className="p-2 rounded-2xl shadow text-black w-fit bg-blue-500" onClick={() => login()}>Sign in with Google</button>
+                <button className="p-2 rounded-2xl shadow text-white w-fit bg-blue-500" onClick={() => login()}>Sign in with Google</button>
 
             </div>
         )
@@ -25,13 +25,13 @@ const Landing = () => {
     return (
         <div style={{ background: `url(${vote5})`, backgroundSize: "cover" }} className='h-screen'>
             <div className='flex text-black flex-col items-center capitalize'>
-                <div className='leading-8 text-lg font-medium mx-2 w-fit shadow p-12 '>
+                <div className='leading-8 text-lg font-medium mx-2 w-fit shadow p-12 bg-blue-100 mt-12'>
 
                     <h1 className='animate-pulse text-center text-3xl text-purple-500 transition-all delay-1000'>join the online voting..</h1>
                     <ul className='text-xl leading-10 list-disc'>
-                        <li>Create Voting Room -Once you signed with your google account </li>
-                        <li>you can multiple voting rooms where people can join from a specific generated key</li>
-                        <li>Voter- can join with any gmail account</li>
+                        <li>Create Voting Room - Once you signed with your google account </li>
+                        <li>you can create or join the multiple voting rooms by specific -- room key</li>
+                        <li>room key- it is the address of that voting room</li>
                     </ul>
                 </div>
                 <div className='shadow-sm shadow-black px-14 mt-12'>

@@ -31,7 +31,7 @@ const Dashboard = () => {
 
       <SignOut />
       {
-        room && <>
+        room.title?( <>
           <div className=' my-24 flex flex-col justify-center items-center'>
             <p className='text-3xl text-white my-4 capitalize'>share the key of this room --&gt;<span className='text-xl mx-4 text-red-500 font-semibold'>{localStorage.getItem("roomkey")}</span> </p>
             <Rivals />
@@ -41,9 +41,12 @@ const Dashboard = () => {
             <NavLink to='/createVoting' className='text-black bg-green-400 p-2 rounded-lg font-semibold absolute top-20 right-52'>Create A New Voting</NavLink>
 
           </div>
-          <ChatBox /></>
+          <ChatBox /></>):<><h1 className='text-white text-center text-3xl capitalize'>no room is joined </h1> 
+          <NavLink to='/joinAVoting' className='text-black bg-yellow-400 p-2 rounded-lg font-semibold absolute top-50 right-20'>Join A New Voting</NavLink>
+          
+          </>
       }
-
+    
     </div>
 
   )
