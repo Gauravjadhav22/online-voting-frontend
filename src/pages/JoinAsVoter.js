@@ -19,7 +19,7 @@ const JoinAsVoter = () => {
 
     return (
         <div className='mx-8 capitalize mt-12 flex flex-col items-center justify-center text-2xl'>
-            <div className='flex flex-col justify-center items-center text-3xl text-white'>
+            <div className='mt-14 flex flex-col justify-center items-center text-3xl text-white'>
                 <h1>Joining As Voter</h1>
                 <p className='text-2xl mt-12'>please enter the id of Room</p>
             </div>
@@ -34,7 +34,7 @@ const JoinAsVoter = () => {
             </form>
          
          
-            <div style={{ background: `url(${vote1})`, backgroundSize: "contain" ,backgroundRepeat:"repeat"}} className='h-3/5 w-full absolute bottom-0'>
+            <div style={{ background: `url(${vote1})`, backgroundSize: "contain" ,backgroundRepeat:"repeat"}} className='h-3/5 sm:h-64 w-full absolute bottom-0'>
 
             </div>
             <NavLink to='/createVoting' className='text-black bg-yellow-400 p-2 rounded-lg font-semibold absolute top-4 left-0'>Create A New Voting</NavLink>

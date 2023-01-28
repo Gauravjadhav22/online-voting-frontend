@@ -34,9 +34,9 @@ const Landing = () => {
                         <li>room key- it is the address of that voting room</li>
                     </ul>
                 </div>
-                <div className='shadow-sm shadow-black px-14 mt-12'>
+                <div className='shadow-xl shadow-black  px-14 mt-12'>
                     {
-                        user && <><div className='bg-violet-100 mt-12 border-2 shadow-green-700 shadow-md cursor-pointer  text-black rounded-lg py-1 text-3xl px-2 my-2 hover:text-blue-400 hover:animate-pulse'>
+                        user && <div className='p-2'><div className='bg-violet-100 mt-12 border-2 shadow-green-700 shadow-md cursor-pointer  text-black rounded-lg py-1 text-3xl px-2 my-2 hover:text-blue-400 hover:animate-pulse'>
                             <NavLink to='/createVoting'>
                                 create An Voting ..
                             </NavLink>
@@ -48,7 +48,7 @@ const Landing = () => {
                                 </NavLink>
                             </div>
                             <SignOut />
-                        </>
+                        </div>
                     }
                     {
                         !user && <SignIn />

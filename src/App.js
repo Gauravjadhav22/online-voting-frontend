@@ -6,6 +6,7 @@ import { HomeLayout } from "./components/HomeLayout";
 import ChatBox from "./components/ChatBox";
 import JoinAsVoter from "./pages/JoinAsVoter";
 import CreateVoting from "./pages/CreateVoting";
+import NotFound from "./components/NotFound";
 function App() {
   return (
     <Routes>
@@ -19,6 +20,7 @@ function App() {
         <Route path='/joinAvoting' element={<JoinAsVoter />} />
         <Route path='/createVoting' element={<CreateVoting />} />
       </Route>
+        <Route path='/*' element={<NotFound />} />
     </Routes>
 
   );
