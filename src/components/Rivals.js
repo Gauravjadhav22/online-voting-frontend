@@ -32,9 +32,8 @@ const Rivals = () => {
         console.log({ ...res.data.winner, winner: true });
       }
     }).catch(err => {
-      setRoom(null)
 
-      toast.error(`${err.response.data.msg}`, {
+      toast.error(`${err?.response?.data?.msg}`, {
         position: toast.POSITION.TOP_CENTER
       }
 
@@ -44,7 +43,7 @@ const Rivals = () => {
 
     ).finally(() => setLoading(false))
 
-    setRivalsData(room)
+
 
   }, [voted])
 
@@ -53,10 +52,12 @@ const Rivals = () => {
 
 
   const voteCasting = (rivalsgmail) => {
+
     let id = localStorage.getItem('roomkey')
     axios.patch(`/voterroom/update/${id}`, { rivals: room.rivals, rivalGmail: rivalsgmail, voterGmail: user.email })
       .then(res => {
-        setRoom(res.data)
+        console.log(res.data);
+        setRoom(res.data.room)
         toast.success(`voted to ${rivalsgmail}`, {
           position: toast.POSITION.TOP_CENTER
         })
