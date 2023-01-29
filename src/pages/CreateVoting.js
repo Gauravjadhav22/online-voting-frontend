@@ -36,18 +36,23 @@ const CreateVoting = () => {
         }
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         setInputVisible(true)
 
         if (noOfRivals > 0) {
             if (noOfRivals == 1) {
+                setLoading(true)
 
                 console.log(uuidv4());
                 console.log(Rivals, title);
-                createRoom({ rivals: [...Rivals, { img, name, email }], title: title, hours: deadline })
+                await createRoom({ rivals: [...Rivals, { img, name, email }], title: title, hours: deadline }).then(
+                    (res) => {
+                        setLoading(false)
+                        console.log(res);
+                    }
+                )
 
-                setTitle("")
             }
             const match = Rivals.find(item => item.email === email || item.name === name)
 
@@ -97,8 +102,6 @@ const CreateVoting = () => {
         data.append("cloud_name", "dfloi7bv1")
         axios.post("https://api.cloudinary.com/v1_1/dfloi7bv1/image/upload", data).then(res => {
             console.log(res.data.secure_url);
-
-
             setImg(res.data.secure_url)
             setImgUploaded(true)
 
@@ -143,17 +146,17 @@ const CreateVoting = () => {
                             </div></>
 
                     }
-                    {!imgUploaded &&<div className='text-xl flex justify-center w-96'>
- 
+                    {!imgUploaded && <div className='text-xl flex justify-center w-96'>
+
                         <label className='font-semibold flex flex-col items-center mt-4 py-2 px-14'>
                             <h1>Choose Pic:</h1>
-                        <img src={imglogo} className='h-16'/>
-                        
-                        <input onChange={(e) => {
-                            uploadImg(e.target.files[0])
-                        }} className='rounded-lg  bg-blueBg invisible' required type="file" />
+                            <img src={imglogo} className='h-16' />
+
+                            <input onChange={(e) => {
+                                uploadImg(e.target.files[0])
+                            }} className='rounded-lg  bg-blueBg invisible' required type="file" />
                         </label >
-                        
+
                     </div>
                     }
 
@@ -201,9 +204,9 @@ const CreateVoting = () => {
 
 
                                     <label>enter the termination time in hours : </label>
-                                    <input onChange={(e) => setDeadline(e.target.value)} required placeholder='1' className='text-blueBg px-1 w-16' min="1" max="24" type="number" />
+                                    <input onChange={(e) => setDeadline(e.target.value)} required placeholder='1' className='text-blueBg px-1 w-16' min={0} max={24} type="number" />
                                 </div>
-                                <input className='p-1 bg-purple-700 rounded-lg' type="submit" value="submit"  />
+                                <input className='p-1 bg-purple-700 rounded-lg' type="submit" value="submit" />
                             </form>}
 
                             {selected && !inputVisible && <div className='mt-14 text-2xl flex'>
@@ -228,15 +231,15 @@ const CreateVoting = () => {
 
                             {InputForm}
                             <ToastContainer />
-                        
+
 
                         </div>
                     </div>
                 )
             }
-          
+
             <NavLink to='/joinAVoting' className='text-black bg-yellow-400 p-2 rounded-lg font-semibold absolute top-2 right-2'>Join A New Voting</NavLink>
-            </div>
+        </div>
 
     )
 }

@@ -41,8 +41,8 @@ const Dashboard = () => {
 
       </div>
       {
- 
-        room?._id || room?.winner?._id && <ChatBox/>
+
+        (room?._id || room?.winner?._id) && <ChatBox />
       }
 
 
