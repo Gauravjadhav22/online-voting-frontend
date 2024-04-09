@@ -27,6 +27,9 @@
 .App-link {
   color: #61dafb;
 }
+.custom-blur {
+  backdrop-filter: blur(2px);
+}
 
 @keyframes App-logo-spin {
   from {

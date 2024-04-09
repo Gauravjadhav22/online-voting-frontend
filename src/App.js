@@ -7,6 +7,7 @@ import ChatBox from "./components/ChatBox";
 import JoinAsVoter from "./pages/JoinAsVoter";
 import CreateVoting from "./pages/CreateVoting";
 import NotFound from "./components/NotFound";
+import "./App.css"
 function App() {
   return (
     <Routes>
