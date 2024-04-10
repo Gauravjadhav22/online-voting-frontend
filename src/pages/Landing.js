@@ -34,7 +34,7 @@ const Landing = () => {
                         <li>room key- it is the address of that voting room</li>
                     </ul>
                 </div>
-                <div className={`mt-12 border-2 px-12 custom-blur p-4 rounded-lg shadow-lg`}>
+                <div className={`mt-12 sm:mt-4 border-2 px-12 custom-blur p-4 rounded-lg shadow-lg`}>
                     {
                         user && <div className='p-2 flex-col gap-6 flex items-center justify-center'>
                             <div className='bg-violet-100 border-2 cursor-pointer shadow text-black rounded-lg py-1 text-3xl px-2 hover:text-gray-700'>

@@ -47,15 +47,18 @@ const JoinAsVoter = () => {
           value="Join"
         />
       </form>
-
       <div
-        style={{
-          background: `url(${vote1})`,
-          backgroundSize: "contain",
-          backgroundRepeat: "repeat",
-        }}
-        className="h-3/5 sm:h-64 w-full absolute bottom-0"
-      ></div>
+    style={{
+      position: "fixed",
+      bottom: 0,
+      left: 0,
+      right: 0,
+      background: `url(${vote1})`,
+      backgroundSize: "contain", // Adjusted to cover the div
+      height: "40vh", // Adjusted height for visibility
+    }}
+  ></div>
+
       <NavLink
         to="/createVoting"
         className="text-black bg-yellow-400 p-2 rounded-lg font-semibold absolute top-4 left-4"

@@ -10,12 +10,12 @@ const AllRooms = ({ positonLeft = "0" }) => {
   }, [rooms]);
   return (
     <div
-      className={`absolute flex flex-col justify-start items-center h-1/3 top-2 ${
+      className={`custom-blur xl:absolute sm:mb-96 sm:mt-5 flex flex-col z-50 justify-start items-center h-1/3 top-2 ${
         positonLeft ? "left-4 top-28" : "right-4"
       }`}
     >
       <h3 className="text-cyan-600 text-2xl">live rooms</h3>
-      <div className=" flex flex-col gap-4 h-max float-right overflow-y-scroll scrollbar-none">
+      <div className="mt-4 flex flex-col gap-4 h-max sm:h-48 float-right overflow-y-scroll scrollbar-none">
         {rooms?.map((room,index) => {
           return (
             <div key={room?._id||index} className="text-green-500 flex mt-2 text-xl underline flex-col p-1 pr-3">
