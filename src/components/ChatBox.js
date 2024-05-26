@@ -97,7 +97,7 @@ function ChatBox() {
             <h1 className="text-2xl px-6 mt-4 text-cyan-300 shadow shadow-white">
               Chat Box
             </h1>
-            <div className="mt-4 mb-12 p-3 rounded-xl h-96 overflow-y-scroll w-3/5 max-w-6xl scrollbar-none shadow shadow-white">
+            <div className="mt-4 mb-12 p-3 rounded-xl h-96 overflow-y-scroll w-[90%] max-w-6xl scrollbar-none shadow shadow-white">
               {messages &&
                 messages.map((msg) => (
                   <ChatMessage key={uuidv4()} message={msg} />
@@ -131,7 +131,7 @@ function ChatBox() {
                     type="text"
                     value={input}
                     onChange={(e) => setInput(e.target.value)}
-                    className="bg-white text-black p-3 my-1 rounded-xl w-80 "
+                    className="bg-white text-black p-3 my-1 rounded-xl w-[90%]"
                   />
                   <button
                     type="submit"

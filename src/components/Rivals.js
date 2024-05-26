@@ -188,7 +188,7 @@ const Rivals = () => {
                     );
                   })}
               </div>
-              <div className="flex items-center justify-center">
+              <div className="flex items-center justify-center md:flex-row flex-col">
                 {(rivalsData?.rivals
                   ? rivalsData?.rivals
                   : rooms?.find((itm) =>

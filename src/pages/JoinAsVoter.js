@@ -27,10 +27,8 @@ const JoinAsVoter = () => {
 
   return (
     <div className="mx-8 capitalize mt-12 flex flex-col items-center justify-center text-2xl">
-      <div className="w-fit absolute top-1 left-1">
-        <SignOut />
-      </div>
-      <div className="mt-14 flex flex-col justify-center items-center text-3xl text-white">
+     
+      <div className="mt-24 flex flex-col justify-center items-center text-3xl text-white">
         <h1>Joining As Voter</h1>
         <p className="text-2xl mt-12">please enter the id of Room</p>
       </div>
@@ -62,13 +60,19 @@ const JoinAsVoter = () => {
           height: "30vh", // Adjusted height for visibility
         }}
       ></div>
+ <div className="absolute top-1 left-1 w-full flex flex-col md:flex-row xl:flex-row md:justify-between items-center ">
+    <div className="w-fit">
 
+<SignOut />
+    </div>
       <NavLink
         to="/createVoting"
-        className="text-black bg-yellow-400 p-2 rounded-lg font-semibold absolute top-4 right-4"
+        className="text-black bg-yellow-400 p-2 rounded-lg font-semibold "
       >
         Create A New Voting
       </NavLink>
+    </div>
+
       <AllRooms />
     </div>
   );
