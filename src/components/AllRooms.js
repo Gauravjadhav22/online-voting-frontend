@@ -15,7 +15,7 @@ const AllRooms = ({ positonLeft = "0" }) => {
       }`}
     >
       <h3 className="text-cyan-600 text-2xl">live rooms</h3>
-      <div className="mt-4 flex flex-col gap-4 h-max sm:h-48 float-right overflow-y-scroll scrollbar-none">
+      <div className="mt-4 flex gap-4 h-max sm:h-48 sm:flex-col float-right overflow-y-scroll scrollbar-none">
         {rooms?.map((room,index) => {
           return (
             <div key={room?._id||index} className="text-green-500 flex mt-2 text-xl underline flex-col p-1 pr-3">

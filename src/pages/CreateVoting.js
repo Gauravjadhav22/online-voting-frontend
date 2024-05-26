@@ -9,6 +9,7 @@ import vote9 from "../assets/vote8.jpg";
 import imglogo from "../assets/image.png";
 
 import { NavLink } from "react-router-dom";
+import { SignOut } from "./Dashboard";
 const CreateVoting = () => {
   const { createRoom } = useRoom();
 
@@ -186,6 +187,8 @@ const CreateVoting = () => {
 
   return (
     <div className="flex justify-center flex-col">
+      <div className="w-fit"><SignOut/>
+      </div>
       {loading ? (
         <div className="flex justify-center text-center">
           <Loading subTitle="plese wait... image is being uploaded " />

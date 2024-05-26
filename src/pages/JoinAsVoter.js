@@ -4,6 +4,7 @@ import { NavLink, useNavigate, useNavigation } from "react-router-dom";
 import vote1 from "../assets/vote1.jpg";
 import AllRooms from "../components/AllRooms";
 import { toast } from "react-toastify";
+import { SignOut } from "./Dashboard";
 
 const JoinAsVoter = () => {
   const navigate = useNavigate();
@@ -26,6 +27,9 @@ const JoinAsVoter = () => {
 
   return (
     <div className="mx-8 capitalize mt-12 flex flex-col items-center justify-center text-2xl">
+      <div className="w-fit absolute top-1 left-1">
+        <SignOut />
+      </div>
       <div className="mt-14 flex flex-col justify-center items-center text-3xl text-white">
         <h1>Joining As Voter</h1>
         <p className="text-2xl mt-12">please enter the id of Room</p>
@@ -48,20 +52,20 @@ const JoinAsVoter = () => {
         />
       </form>
       <div
-    style={{
-      position: "fixed",
-      bottom: 0,
-      left: 0,
-      right: 0,
-      background: `url(${vote1})`,
-      backgroundSize: "contain", // Adjusted to cover the div
-      height: "40vh", // Adjusted height for visibility
-    }}
-  ></div>
+        style={{
+          position: "fixed",
+          bottom: 0,
+          left: 0,
+          right: 0,
+          background: `url(${vote1})`,
+          backgroundSize: "contain", // Adjusted to cover the div
+          height: "30vh", // Adjusted height for visibility
+        }}
+      ></div>
 
       <NavLink
         to="/createVoting"
-        className="text-black bg-yellow-400 p-2 rounded-lg font-semibold absolute top-4 left-4"
+        className="text-black bg-yellow-400 p-2 rounded-lg font-semibold absolute top-4 right-4"
       >
         Create A New Voting
       </NavLink>

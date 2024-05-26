@@ -9,8 +9,23 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Voters from "../components/Voters";
 import AllRooms from "../components/AllRooms";
+
+export function SignOut() {
+  const { logout, login, user } = useAuth();
+  return (
+    user && (
+      <button
+        className="m-4 flex items-center bg-red-900 p-1 rounded-xl text-white text-2xl"
+        onClick={() => logout()}
+      >
+        <span className="mr-1 px-2">Sign Out</span> <BiLogOut />{" "}
+      </button>
+    )
+  );
+}
 const Dashboard = () => {
   const { logout, login, user } = useAuth();
+
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const { getRoom, room, err, rooms, getAllRooms, roomPass } = useRoom();
